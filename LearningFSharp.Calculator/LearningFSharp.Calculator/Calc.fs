@@ -2,20 +2,30 @@
 
 open System
 
-let operations =
-  [
+let private operations =
+  [|
     "+", (+)
     "-", (-)
     "*", (*)
     "/", (/)
-  ] |> Map.ofList
-
-let calc x op y : Result<float, string> =
-  match operations.TryFind op with
-  | Some func -> func (float x) (float y) |> Ok
-  | _ -> sprintf "Invalid operation %s" op |> Error
+  |] |> Map.ofArray
   
-let public CalculateExpression(expr: string) : Result<float, string> =
+let private parseFloat (x: string) =
+  match Decimal.TryParse x with
+  | true, value -> value |> Ok
+  | _ -> Error $"Invalid value {x}"
+
+let private parseFunction op =
+  match operations.TryFind op with
+  | Some operation -> operation |> Ok
+  | _ -> Error $"Invalid operation {op}"
+  
+let parseExpression x op y =
+   match (parseFloat x, parseFunction op, parseFloat y) with
+   | (Ok v1, Ok func, Ok v2) -> func v1 v2 |> Ok
+   | _ -> Error $"Invalid expression parts {x} {op} {y}" 
+
+let CalculateExpression(expr: string) =
   match expr.Split(' ') with
-  | x when x.Length = 3 -> calc x.[0] x.[1] x.[2] 
-  | _ -> sprintf "Invalid expression %s" expr |> Error
+  | [| x; op; y |] -> parseExpression x op y
+  | _ -> Error $"Invalid expression {expr}"
