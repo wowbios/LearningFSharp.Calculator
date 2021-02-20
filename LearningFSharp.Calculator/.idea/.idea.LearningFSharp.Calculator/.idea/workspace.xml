@@ -5,9 +5,10 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="81299843-ef2d-4a3e-9b5e-9c6823a8d77d" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/../.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/../.gitignore" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/.idea.LearningFSharp.Calculator/.idea/indexLayout.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.LearningFSharp.Calculator/.idea/indexLayout.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.LearningFSharp.Calculator/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.LearningFSharp.Calculator/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/LearningFSharp.Calculator/Calc.fs" beforeDir="false" afterPath="$PROJECT_DIR$/LearningFSharp.Calculator/Calc.fs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/LearningFSharp.Calculator/LearningFSharp.Calculator.fsproj" beforeDir="false" afterPath="$PROJECT_DIR$/LearningFSharp.Calculator/LearningFSharp.Calculator.fsproj" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -25,14 +26,11 @@
       <filtered-out-file-type name="COMMIT_BY_MESSAGE" />
     </file-type-list>
   </component>
-  <component name="HighlightingSettingsPerFile">
-    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/011B2A42-E843-6946-FDB2-EAD58B65587F/1/prim-types.fs" root0="SKIP_HIGHLIGHTING" />
-  </component>
   <component name="IdeDocumentHistory">
     <changedPaths>
       <option value="$PROJECT_DIR$/LearningFSharp.Calculator/Program.fs" />
-      <option value="$PROJECT_DIR$/LearningFSharp.Calculator/Calc.fs" />
       <option value="$PROJECT_DIR$/LearningFSharp.Calculator/LearningFSharp.Calculator.fsproj" />
+      <option value="$PROJECT_DIR$/LearningFSharp.Calculator/Calc.fs" />
     </changedPaths>
   </component>
   <component name="ProjectId" id="1oiOACodKjmkAbUfSRaCkD8otPW" />
@@ -77,6 +75,7 @@
       <option name="presentableId" value="Default" />
       <updated>1613765798653</updated>
       <workItem from="1613765805142" duration="5528000" />
+      <workItem from="1613837525446" duration="2863000" />
     </task>
     <servers />
   </component>
@@ -92,6 +91,7 @@
         </entry>
       </map>
     </option>
+    <option name="oldMeFiltersMigrated" value="true" />
   </component>
   <component name="VcsManagerConfiguration">
     <option name="CLEAR_INITIAL_COMMIT_MESSAGE" value="true" />

@@ -2,30 +2,44 @@
 
 open System
 
-let private operations =
-  [|
-    "+", (+)
-    "-", (-)
-    "*", (*)
-    "/", (/)
-  |] |> Map.ofArray
-  
-let private parseFloat (x: string) =
+let (|Decimal|_|) (x:string) =
   match Decimal.TryParse x with
-  | true, value -> value |> Ok
-  | _ -> Error $"Invalid value {x}"
+  | true, value -> Some value
+  | _ -> None
 
-let private parseFunction op =
-  match operations.TryFind op with
-  | Some operation -> operation |> Ok
-  | _ -> Error $"Invalid operation {op}"
+type Operation =
+  | Sum
+  | Subtract
+  | Multiply
+  | Divide
+
+type operand =
+  | OpenBracket
+  | CloseBracket
+  | Value of decimal
+  | Operation of Operation
+
+let (|Operation|_|) (x:string) =
+  match x with
+  | "+" -> Sum |> Some
+  | "-" -> Subtract |> Some
+  | "*" -> Multiply |> Some
+  | "/" -> Divide |> Some
+  | _ -> None
   
-let parseExpression x op y =
-   match (parseFloat x, parseFunction op, parseFloat y) with
-   | (Ok v1, Ok func, Ok v2) -> func v1 v2 |> Ok
-   | _ -> Error $"Invalid expression parts {x} {op} {y}" 
+let parseOperand operand =
+  match operand with
+    | "(" -> Ok OpenBracket
+    | ")" -> Ok CloseBracket
+    | Decimal value -> Value(value) |> Ok
+    | Operation operation -> Operation(operation) |> Ok
+    | _ -> Error $"Invalid operand {operand}"
+            
+let getOperands (expr:string) =
+  expr.Split(' ')
+  |> Array.map parseOperand
 
 let CalculateExpression(expr: string) =
-  match expr.Split(' ') with
-  | [| x; op; y |] -> parseExpression x op y
-  | _ -> Error $"Invalid expression {expr}"
+//  match expr.Split(' ') with
+//  | [| x; op; y |] -> parseExpression x op y
+//  | _ -> Error $"Invalid expression {expr}"
